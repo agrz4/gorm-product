@@ -1,6 +1,8 @@
 package config
 
 import (
+	"fmt"
+
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
@@ -15,7 +17,7 @@ func ConnectDB() {
 	database := "goprod"
 	port := "5432"
 
-	dsn := " host=" + host + " user=" + username + " password=" + password + " dbname=" + database + " port=" + port + "sslmode=disable TimeZone=Asia/Jakarta"
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Jakarta", host, username, password, database, port)
 
 	var err error
 
